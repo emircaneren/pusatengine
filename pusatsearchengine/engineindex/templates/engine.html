@@ -1,0 +1,20 @@
+<form method="post" action="{% url 'process' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="model_engine">Model Engine</label>
+        
+    </div>
+    <div class="form-group">
+        <label for="prompt">Prompt</label>
+        <textarea class="form-control" id="prompt" rows="3" name="prompt"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div>
+    {% if message %}
+        <hr>
+        <h5>Output</h5>
+        <p>{{ message }}</p>
+    {% endif %}
+</div>

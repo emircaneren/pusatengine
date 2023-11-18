@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Browser</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+
+</head>
+
+<body class="bg-dark text-white">
+    
+
+    <div class="contaier p-5 mt-5"> 
+    
+    <!-- İlk Katman -->
+    <form id="lower-form" class="d-flex justify-content-center" action="{% url 'api_key' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" id="api_key" name="api_key" class="d-flex justify-content-center border-3 border-white text-white rounded-start-4 col-lg-6 col-sm-10 p-2 bg-dark" minlength="15" required>
+        <button type="submit" value='save' class="btn btn-primary rounded-start-0">Submit</button>
+</form>
+<p class='p-lead text-center p-1 mt-3 fw-bold text-danger'>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+</p>
+
+</div>
+</body>
+
+</html>
